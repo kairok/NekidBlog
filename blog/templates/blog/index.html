@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+
+{%  block content %}
+
+
+
+{% for new in news %}
+    <h2><a href="">{{ new.title }}</a></h2>
+    <p>{{ new.text_min | safe }}</p>
+    <p>{{ new.created }}</p>
+{%  endfor %}
+
+{% endblock content %}
