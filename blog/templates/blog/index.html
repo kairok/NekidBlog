@@ -3,13 +3,44 @@
 
 
 {%  block content %}
+<div class="row mt-5">
+ <div class="col-sm-12">
+     <a class="btn btn-primary" href="{% url 'add_post'  %}" role="button">Добавить пост</a>
+ </div>
+</div>
+    <div class="row mt-5">
+         <div class="col-sm-2">
+          </div>
+    <div class="col-sm-6">
+       <h5> Посты</h5>
+          </div>
+    <div class="col-sm-4">
+        <h5>Лента новостей</h5>
+          </div>
+    </div>
+<div class="row mt-5">
+    <div class="col-sm-2">
+      {% for user in useers %}
+            <h2><a href="{% url 'user_posts' user %}">{{user }}</a></h2>
+
+        {%  endfor %}
+    </div>
+    <div class="col-sm-6">
+      {% for new in news %}
+            <h2>{{ new.title }}</h2>
+            <p>{{ new.text | safe }}</p>
+            <p>Автор:{{ new.blog }} - {{ new.created }}</p>
+        {%  endfor %}
+    </div>
+    <div class="col-sm-4">
+        {% for new in signed %}
+            <h2>{{ new.title }}</h2>
+            <p>{{ new.text | safe }}</p>
+            <p>Автор:{{ new.blog }} - {{ new.created }}</p>
+        {%  endfor %}
+    </div>
+  </div>
 
 
-
-{% for new in news %}
-    <h2><a href="">{{ new.title }}</a></h2>
-    <p>{{ new.text_min | safe }}</p>
-    <p>{{ new.created }}</p>
-{%  endfor %}
 
 {% endblock content %}

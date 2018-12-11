@@ -3,18 +3,18 @@
 
 
 {%  block content %}
-
+<p></p>
 <div class="row mt-5">
     <div class="col-md-2">
       <div class="col-md-12">
-        <a href="{% url 'add_post' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Подписаться</a>
+        <a href="{% url 'signed_user'  name %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Подписаться</a>
     </div>
     </div>
     <div class="col-md-10">
         {% for new in news %}
             <h3>{{ new.title }}</h3>
             <p>{{ new.text | safe }}</p>
-           <p>Автор:{{ new.user }} - {{ new.created }}</p>
+           <p> {{ new.created }}</p>
         {%  endfor %}
     </div>
 
